@@ -1,0 +1,47 @@
+{{#if tasks}}
+
+
+    <table class="table table-bordered table-hover table-dark">
+        <thead>
+        <tr>
+            <th>N.</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Operation</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{#each tasks}}
+            <tr>
+                <td>{{@index}}</td>
+                <td>{{title}}</td>
+                <td>{{description}}</td>
+                <td>
+                    {{#if done}}
+                        <a href="/toggleDone/{{_id}}" class="btn btn-danger">Deshacer</a>
+                    {{else}}
+                        <a href="/toggleDone/{{_id}}" class="btn btn-success">Cumplida</a>
+                    {{/if}}
+                    <a href="/delete/{{_id}}" class="btn btn-danger">Borrar</a>
+                    <a href="/editar/{{_id}}" class="btn btn-primary">Update</a>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+
+    </table>
+
+
+
+
+{{else}}
+
+    <div class="h-100 d-flex align-items-center justify-content center">
+
+        <div class="text-center text-white"><h1>No hay tareas</h1></div>
+        <img src="./icons/foto.jpg" alt="" class="w-75">
+
+    </div>
+
+{{/if}}
